@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import Btn from './style'
+import React from 'react';
 function Main(props){
 
     return(
@@ -50,7 +49,7 @@ function Main(props){
         <div className="col s6" style={{
           padding:'2.5rem'
         }}>
-        <img src="https://www.pegipegi.com/assets-hotel-homepage-pc/img/ogp-pegipegi.jpg"/>
+        <img src="https://www.pegipegi.com/assets-hotel-homepage-pc/img/ogp-pegipegi.jpg" alt="logo"/>
         </div>
       </div>
     )

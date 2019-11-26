@@ -1,16 +1,11 @@
-import React, {useState,useEffect} from 'react'
+import React from 'react'
 import SecTitle from './style'
-import Border from './style'
-import axios from 'axios'
 import { useFetch } from "./hooks";
 
 function Recommend(){
-
   const [data, loading] = useFetch(
-    //https://jsonplaceholder.typicode.com/photos?albumId=1
-    "https://jsonplaceholder.typicode.com/photos?albumId=1"
+    "http://localhost:4000/get"
   );
-      console.log(data);
   return(
 
     <div>
@@ -21,25 +16,24 @@ function Recommend(){
 
             {loading ? (
 
-              <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif"/>
+              <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="loading"/>
             ) : (
               <ul>
-                {data.map(({ id, title, url }) => (
+                {data.map(({ id, title, foto, deskripsi,webpage }) => (
                   <li key={`photo-${id}`}>
                     <div className="col s4">
                       <div className="card">
                         <div className="card-image">
-                          <img alt={title} src={url} />
+                          <img alt={title} src={foto} />
                         </div>
 
                         <div className="card-content">
-                          <span className="card-title">{title}</span>
+                          <span className="card-title"><b>{title}</b></span>
 
-                          <p>I am a very simple card. I am good at containing small bits of information.
-                          I am convenient because I require little markup to use effectively.</p>
+                          <p>{deskripsi}</p>
                         </div>
                         <div className  ="card-action">
-                          <a href="#">This is a link</a>
+                          <a href={webpage}>Kunjungi Website</a>
                         </div>
                       </div>
                     </div>
